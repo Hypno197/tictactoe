@@ -24,13 +24,16 @@ public class Main {
 				System.out.println("Dove vuoi mettere la x?");
 				nr = sc.nextInt();
 				nc = sc.nextInt();
+				if (nr<3 && nc<3) {
 				if (matrice[nr][nc].equalsIgnoreCase(" ")) {
 					matrice[nr][nc] = "x";
 					mossaG1 = true;
 					counter++;
 				} else
 					System.out.println("La posizione è occupata!");
-			} while (!mossaG1);
+				} else 
+					System.out.println("Mossa non valida!!");
+				} while (!mossaG1);
 
 			for (int i = 0; i < 3; i++) {// stampa griglia
 				for (int j = 0; j < 3; j++) {
@@ -60,12 +63,16 @@ public class Main {
 				System.out.println("Dove vuoi mettere lo 0?");
 				nr = sc.nextInt();
 				nc = sc.nextInt();
+				if (nr<3 && nc<3) {
 				if (matrice[nr][nc].equalsIgnoreCase(" ")) {
 					matrice[nr][nc] = "0";
 					mossaG2 = true;
 					counter++;
 				} else
 					System.out.println("La posizione è occupata!");
+			}
+				else 
+					System.out.println("Mossa non valida!!");
 			}while (!mossaG2);
 
 			for (int i = 0; i < 3; i++) {// stampa griglia
@@ -90,7 +97,7 @@ public class Main {
 			if (matrice[2][0].equals(matrice[1][1]) && matrice[2][0].equals(matrice[0][2]) && matrice[2][0].equals("0"))//condizioni diagonalley
 				chiVince = ("giocatore 2");
 
-		} while (!chiVince.equals("giocatore 1") && !chiVince.equals("giocatore 2") && counter < 9);
+		} while (!chiVince.equals("giocatore 1") && !chiVince.equals("giocatore 2"));
 		if (counter == 9)
 			System.out.println("Pareggio!!");
 		else
